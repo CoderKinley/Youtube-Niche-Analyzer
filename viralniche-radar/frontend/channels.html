@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Channels · ViralNiche Radar</title><meta name="theme-color" content="#0e0e11">
+  <link rel="icon" href="/static/brand-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css?v=similar-1">
+  <script src="/static/common.js" defer></script><script src="/static/research.js?v=chart-contrast-1" defer></script>
+  <script src="/static/channels.js?v=similar-1" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="nav-inner">
+    <a class="brand" href="/" aria-label="ViralNiche Radar home"><img class="brand-mark" src="/static/brand-mark.svg" width="34" height="34" alt="" aria-hidden="true">ViralNiche <span>Radar</span></a>
+    <nav aria-label="Main navigation"><a href="/">Dashboard</a><a href="/channels" aria-current="page">Channels</a><a href="/similar">Similar</a><a href="/stats">Stats</a><a href="/guide">Guide</a><details class="nav-menu"><summary>Settings</summary><div class="menu-items"><a href="/settings">YouTube API</a><a href="/guide#setup-guide">Setup guide</a></div></details></nav>
+  </div></header>
+  <main class="shell">
+    <div class="page-heading"><div><h1>Channels worth studying.</h1><p>Look for repeat performance. See the evidence behind it.</p></div><a class="button secondary" href="/">New search</a></div>
+    <section class="panel search-panel" aria-label="Choose research">
+      <div class="research-toolbar"><div class="field keyword-field"><label for="saved-search">Saved research</label><select id="saved-search" disabled><option>Loading…</option></select></div><button id="refresh-search" class="secondary" disabled>Refresh research</button><a id="related-page" class="button secondary" href="/stats">View stats</a></div>
+      <p id="snapshot-meta" class="helper"></p><p id="page-message" role="status" aria-live="polite"></p>
+    </section>
+    <div id="analysis-content" hidden>
+      <section class="panel search-panel" aria-label="Channel filters"><div class="research-toolbar filters">
+        <div class="field"><label for="channel-format">Duration class</label><select id="channel-format"><option value="short">Short candidates · ≤3 min</option><option value="long">Long videos · >3 min</option><option value="all">All formats</option></select></div>
+        <div class="field"><label for="subscriber-limit">Channel size</label><select id="subscriber-limit"><option value="100000">Under 100K subscribers</option><option value="10000">Under 10K subscribers</option><option value="0">All, including unknown</option></select></div>
+        <div class="field"><label for="minimum-uploads">Measured uploads</label><select id="minimum-uploads"><option value="0">Any sample size</option><option value="3" selected>At least 3</option><option value="5">At least 5</option><option value="10">At least 10</option></select></div>
+        <div class="field"><label for="channel-sort">Sort by</label><select id="channel-sort"><option value="evidence">Evidence, then median views</option><option value="median_views">Median views</option><option value="median_views_per_hour">Average view rate</option><option value="median_views_to_subscribers">Views / subscriber</option></select></div>
+      </div></section>
+      <div id="channel-metrics" class="metrics"></div>
+      <section class="panel"><div class="panel-heading"><h2>Channel shortlist</h2><span id="channel-count" class="helper"></span></div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Channel performance"><table><thead><tr><th scope="col">Channel</th><th scope="col">Subscribers</th><th scope="col">Median views<small>uploads at least 24h old</small></th><th scope="col">Avg. views/hour<small>median lifetime rate</small></th><th scope="col">Measured uploads</th><th scope="col">Top video share</th><th scope="col">Evidence</th></tr></thead><tbody id="channel-rows"></tbody></table></div>
+        <p id="channel-empty" class="empty" hidden></p><p id="channel-note" class="table-note"></p>
+      </section>
+      <section id="channel-detail" class="panel" hidden aria-labelledby="channel-detail-title" tabindex="-1">
+        <div class="panel-heading"><div><h2 id="channel-detail-title"></h2><p id="channel-detail-meta" class="helper"></p></div><a id="youtube-channel" class="button secondary" target="_blank" rel="noopener noreferrer">Open channel ↗</a></div>
+        <div id="channel-chart" class="chart"></div>
+        <p class="table-note">Current views per sampled upload, in publication order. This is not a daily view-growth chart.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Sampled channel uploads"><table><thead><tr><th scope="col">Upload</th><th scope="col">Published</th><th scope="col">Views</th><th scope="col">Duration</th><th scope="col">Included in median</th></tr></thead><tbody id="channel-upload-rows"></tbody></table></div>
+      </section>
+    </div>
+    <footer><span>ViralNiche Radar</span><a href="/guide#channel-research">How channel research works ↗</a></footer>
+  </main>
+</body>
+</html>

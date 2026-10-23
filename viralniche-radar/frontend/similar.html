@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Similar Channels · ViralNiche Radar</title><meta name="theme-color" content="#0e0e11">
+  <link rel="icon" href="/static/brand-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/styles.css?v=similar-1">
+  <script src="/static/common.js" defer></script><script src="/static/research.js?v=chart-contrast-1" defer></script><script src="/static/similar.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="nav-inner">
+    <a class="brand" href="/" aria-label="ViralNiche Radar home"><img class="brand-mark" src="/static/brand-mark.svg" width="34" height="34" alt="" aria-hidden="true">ViralNiche <span>Radar</span></a>
+    <nav aria-label="Main navigation"><a href="/">Dashboard</a><a href="/channels">Channels</a><a href="/similar" aria-current="page">Similar</a><a href="/stats">Stats</a><a href="/guide">Guide</a><details class="nav-menu"><summary>Settings</summary><div class="menu-items"><a href="/settings">YouTube API</a><a href="/guide#setup-guide">Setup guide</a></div></details></nav>
+  </div></header>
+  <main class="shell">
+    <div class="page-heading"><div><h1>Find channels like yours.</h1><p>Start with saved discoveries. Explore further when you choose.</p></div></div>
+    <section class="panel search-panel" aria-label="Find similar channels">
+      <form id="similar-form"><div class="field keyword-field"><label for="channel-reference">Reference channel</label><input id="channel-reference" placeholder="Channel name, @handle, or YouTube channel URL" minlength="2" maxlength="200" required></div>
+        <div class="field"><label for="similar-format">Compare uploads</label><select id="similar-format"><option value="short">Short candidates · ≤3 min</option><option value="long">Long videos · >3 min</option><option value="all">All formats</option></select></div><button id="find-similar" type="submit" class="primary">Find similar</button></form>
+      <label class="refresh-choice"><input id="refresh-related" type="checkbox"> Refresh existing report with new YouTube data</label>
+      <p class="helper">Browsing saved channels is free of API requests. Find similar uses quota for new results; existing reports are reused unless you select refresh.</p>
+      <p id="similar-message" role="status" aria-live="polite"></p>
+      <div id="channel-choices" hidden><h2>Choose the reference channel</h2><p class="helper">Names can match multiple channels. Selecting one starts discovery.</p><div id="choice-list" class="choice-list"></div></div>
+    </section>
+    <section class="panel search-panel"><div class="field"><label for="saved-report">Saved similarity reports · no quota</label><select id="saved-report"><option value="">Choose a report</option></select></div></section>
+    <section id="similar-results" class="panel" hidden aria-labelledby="similar-heading">
+      <div class="panel-heading"><div><h2 id="similar-heading"></h2><p id="similar-meta" class="helper"></p></div><div class="field"><label for="related-size">Channel size</label><select id="related-size"><option value="all">All matches</option><option value="smaller">Smaller than reference</option><option value="small">Under 100K subscribers</option></select></div></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Similar channel evidence"><table><thead><tr><th scope="col">Channel</th><th scope="col">Title similarity</th><th scope="col">Why it matches</th><th scope="col">Subscribers</th><th scope="col">Median views<small>sampled uploads ≥24h</small></th><th scope="col">Shortlist evidence</th></tr></thead><tbody id="related-rows"></tbody></table></div>
+      <p id="related-empty" class="empty" hidden>No matches with enough shared title evidence. Try All formats or another reference.</p>
+      <p id="related-note" class="table-note"></p><div id="related-warnings" class="table-note" hidden></div>
+    </section>
+    <section class="panel" aria-labelledby="library-heading"><div class="panel-heading"><div><h2 id="library-heading">Your discovered channels</h2><p id="library-count" class="helper">Loading saved channels…</p></div><div class="field"><label class="sr-only" for="library-filter">Filter saved channels</label><input id="library-filter" type="search" placeholder="Filter channel, topic, or niche"></div></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Saved channel library"><table><thead><tr><th scope="col">Channel</th><th scope="col">Found in</th><th scope="col">Subscribers</th><th scope="col">Median views<small>all sampled formats</small></th><th scope="col">Saved</th><th scope="col">Explore</th></tr></thead><tbody id="library-rows"></tbody></table></div>
+      <p id="library-empty" class="empty" hidden>Run a niche search on the dashboard to build your channel library.</p>
+      <p class="table-note">Channels are deduplicated across saved niche searches. Each row uses its newest saved sample; older research may have limited metrics. Choosing a reference does not start a YouTube search.</p>
+    </section>
+    <footer><span>ViralNiche Radar</span><a href="/guide#similar-channels">About similarity ↗</a></footer>
+  </main>
+</body>
+</html>

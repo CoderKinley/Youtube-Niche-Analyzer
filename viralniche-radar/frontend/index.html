@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find YouTube breakout videos and compare your next niche.">
+  <title>Dashboard · ViralNiche Radar</title>
+  <meta name="theme-color" content="#0e0e11">
+  <link rel="icon" href="/static/brand-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css?v=similar-1">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="ViralNiche Radar home"><img class="brand-mark" src="/static/brand-mark.svg" width="34" height="34" alt="" aria-hidden="true">ViralNiche <span>Radar</span></a>
+      <nav aria-label="Main navigation">
+        <a href="/" aria-current="page">Dashboard</a>
+        <a href="/channels">Channels</a><a href="/similar">Similar</a>
+        <a href="/stats">Stats</a>
+        <a href="/guide">Guide</a>
+        <details class="nav-menu"><summary>Settings <span aria-hidden="true">⌄</span></summary><div class="menu-items"><a href="/settings">YouTube API <small id="connection">Checking…</small></a><a href="/guide#setup-guide">Setup guide</a></div></details>
+      </nav>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="page-heading"><div><h1>Find your next niche.</h1><p>Breakout videos. Repeating patterns. Clearer decisions.</p></div></div>
+    <section class="panel search-panel" aria-label="Analyze a niche">
+      <form id="search-form">
+        <div class="field keyword-field"><label for="query">Niche</label><input id="query" name="query" placeholder="Search a niche, e.g. funny animation" minlength="2" maxlength="120" required autocomplete="off"></div>
+        <div class="field"><label for="days">Uploaded within</label><select id="days" name="days"><option value="7">7 days</option><option value="14">14 days</option><option value="30" selected>30 days</option></select></div>
+        <div class="field"><label for="video-format">Duration class</label><select id="video-format"><option value="short" selected>Short candidates · ≤3 min</option><option value="long">Long videos · >3 min</option><option value="all">All formats</option></select></div>
+        <button class="primary" id="analyze" type="submit">Analyze</button>
+      </form>
+      <p id="setup" class="notice" hidden><a href="/settings">Add your YouTube API key</a> to start searching.</p>
+      <p id="message" role="status" aria-live="polite" hidden></p>
+    </section>
+
+    <section id="research" aria-labelledby="research-heading" hidden>
+      <div class="section-heading"><div><h2 id="research-heading"></h2><p id="research-meta" class="helper"></p></div><div class="research-links"><a id="channel-link" class="button secondary" href="/channels">Channels</a><a id="stats-link" class="button secondary" href="/stats">Stats</a><a id="export" class="button secondary" href="#">Export top 10 ↓</a></div></div>
+      <div id="summary" class="metrics"></div>
+      <details id="sample-notes" class="sample-notes" hidden><summary>Sample notes</summary><div id="warnings"></div></details>
+      <section class="panel" aria-labelledby="breakouts-heading">
+        <div class="panel-heading"><h2 id="breakouts-heading">Top breakouts</h2><div class="table-controls"><label class="sr-only" for="sort">Sort videos by</label><select id="sort"><option value="breakout_score">Research score</option><option value="avg_views_per_hour">Average views/hour</option><option value="outlier_multiplier">Outlier multiplier</option><option value="views">Total views</option></select></div></div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Ranked videos"><table class="video-table"><thead><tr><th scope="col">Score</th><th scope="col">Video</th><th scope="col">Age</th><th scope="col">Views</th><th scope="col">Average views/hour<small>since upload</small></th><th scope="col">Outlier</th><th scope="col">Subscribers</th><th scope="col">Engagement</th></tr></thead><tbody id="videos"></tbody></table></div>
+        <p id="no-videos" class="empty" hidden>No videos found. Try another niche or a longer window.</p>
+        <p class="table-note">This is a research score, not a prediction that the video will go viral. <a href="/guide#signals">How scores work ↗</a></p>
+      </section>
+      <section class="panel" aria-labelledby="phrases-heading"><div class="panel-heading"><h2 id="phrases-heading">Recurring phrases</h2><a class="quiet-link" href="/guide#phrases">About phrases ↗</a></div><div id="phrases" class="phrases"></div></section>
+    </section>
+
+    <section class="panel" aria-labelledby="compare-heading">
+      <div class="panel-heading"><div><h2 id="compare-heading">Saved niches</h2><p class="helper">Select 2–5 to compare.</p></div><button id="compare" class="secondary" type="button" disabled>Compare (0)</button></div>
+      <div id="history" class="history"><p class="empty">Your searches will appear here.</p></div>
+      <p id="compare-message" role="status" hidden></p>
+      <div id="comparison" hidden><div class="table-wrap" tabindex="0" role="region" aria-label="Niche comparison"><table><thead><tr><th scope="col">Niche</th><th scope="col">Opportunity</th><th scope="col">Median views/hour</th><th scope="col">Median outlier</th><th scope="col">Breakouts</th><th scope="col">Small-channel hits</th><th scope="col">Creators</th><th scope="col">Phrase share</th></tr></thead><tbody id="niches"></tbody></table></div><p id="comparison-note" class="table-note"></p></div>
+    </section>
+    <footer><span>ViralNiche Radar</span><a href="/guide">Research guide ↗</a></footer>
+  </main>
+</body>
+</html>

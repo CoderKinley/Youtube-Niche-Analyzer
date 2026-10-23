@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API settings · ViralNiche Radar</title>
+  <meta name="theme-color" content="#0e0e11">
+  <link rel="icon" href="/static/brand-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css?v=similar-1">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/settings.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="nav-inner">
+    <a class="brand" href="/" aria-label="ViralNiche Radar home"><img class="brand-mark" src="/static/brand-mark.svg" width="34" height="34" alt="" aria-hidden="true">ViralNiche <span>Radar</span></a>
+    <nav aria-label="Main navigation"><a href="/">Dashboard</a><a href="/channels">Channels</a><a href="/similar">Similar</a><a href="/stats">Stats</a><a href="/guide">Guide</a><details class="nav-menu"><summary class="active">Settings <span aria-hidden="true">⌄</span></summary><div class="menu-items"><a href="/settings" aria-current="page">YouTube API</a><a href="/guide#setup-guide">Setup guide</a></div></details></nav>
+  </div></header>
+  <main class="shell narrow">
+    <div class="page-heading"><div><a class="back-link" href="/">← Dashboard</a><h1>API settings</h1><p>Connect your YouTube Data API key.</p></div></div>
+    <section class="panel settings-panel" aria-labelledby="youtube-heading">
+      <div class="settings-heading"><h2 id="youtube-heading">YouTube API</h2><span id="connection" class="status">Checking…</span></div>
+      <p id="key-status" class="helper" role="status" aria-live="polite">Checking your saved key…</p>
+      <form id="key-form" class="key-form">
+        <div class="field keyword-field"><label for="api-key">API key</label><input id="api-key" name="api-key" type="password" placeholder="Paste your API key" minlength="20" maxlength="200" required autocomplete="new-password" autocapitalize="none" spellcheck="false" aria-describedby="key-help"></div>
+        <button id="save-key" class="primary" type="submit">Save key</button>
+      </form>
+      <p id="key-help" class="helper">Saved on this computer. Changes apply immediately.</p>
+      <p id="key-message" class="key-message" role="status" aria-live="polite" hidden></p>
+      <div class="settings-links"><a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer">Get an API key ↗</a><a href="/guide#setup-guide">Setup instructions ↗</a></div>
+    </section>
+    <a class="button secondary" href="/">Back to research →</a>
+  </main>
+</body>
+</html>

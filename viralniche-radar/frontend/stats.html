@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stats · ViralNiche Radar</title><meta name="theme-color" content="#0e0e11">
+  <link rel="icon" href="/static/brand-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/styles.css?v=similar-1">
+  <script src="/static/common.js" defer></script><script src="/static/research.js?v=chart-contrast-1" defer></script><script src="/static/stats.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="nav-inner">
+    <a class="brand" href="/" aria-label="ViralNiche Radar home"><img class="brand-mark" src="/static/brand-mark.svg" width="34" height="34" alt="" aria-hidden="true">ViralNiche <span>Radar</span></a>
+    <nav aria-label="Main navigation"><a href="/">Dashboard</a><a href="/channels">Channels</a><a href="/similar">Similar</a><a href="/stats" aria-current="page">Stats</a><a href="/guide">Guide</a><details class="nav-menu"><summary>Settings</summary><div class="menu-items"><a href="/settings">YouTube API</a><a href="/guide#setup-guide">Setup guide</a></div></details></nav>
+  </div></header>
+  <main class="shell">
+    <div class="page-heading"><div><h1>See the bigger picture.</h1><p>Sample coverage, creator concentration, and observed growth.</p></div><a class="button secondary" href="/">New search</a></div>
+    <section class="panel search-panel" aria-label="Choose research"><div class="research-toolbar"><div class="field keyword-field"><label for="saved-search">Saved research</label><select id="saved-search" disabled><option>Loading…</option></select></div><button id="refresh-search" class="secondary" disabled>Refresh research</button><a id="related-page" class="button secondary" href="/channels">View channels</a></div><p id="snapshot-meta" class="helper"></p><p id="page-message" role="status" aria-live="polite"></p></section>
+    <div id="analysis-content" hidden>
+      <div id="stats-metrics" class="metrics"></div>
+      <div class="charts-grid">
+        <section class="panel"><div class="panel-heading"><h2>Views by creator</h2><span class="helper">Top 10 in sample</span></div><div id="creator-chart" class="chart"></div><p class="table-note">A concentrated sample can reflect one dominant creator. It does not establish low competition.</p></section>
+        <section class="panel"><div class="panel-heading"><h2>Duration mix</h2></div><div id="format-chart" class="chart"></div><p class="table-note">Videos up to 3 minutes are short candidates. Duration does not confirm Shorts classification.</p></section>
+        <section class="panel chart-wide"><div class="panel-heading"><h2>Uploads in the sample</h2><div class="field"><label class="sr-only" for="timeline-metric">Chart measure</label><select id="timeline-metric"><option value="uploads">Upload count</option><option value="views">Current views by upload date</option></select></div></div><div id="timeline-chart" class="chart"></div><p class="table-note">Grouped by publication date. Views are totals at capture, not views earned on that date. Missing dates mean no sampled uploads.</p></section>
+      </div>
+      <section class="panel"><div class="panel-heading"><h2>Measured view growth</h2></div><p id="growth-empty" class="empty" hidden>No comparable captures yet. Refresh the research after at least an hour. Videos found again can show measured view gains.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Measured growth between saved captures"><table><thead><tr><th scope="col">Video</th><th scope="col">Previous capture</th><th scope="col">Interval</th><th scope="col">Views gained</th><th scope="col">Views/hour<small>between captures</small></th></tr></thead><tbody id="growth-rows"></tbody></table></div><p class="table-note">Uses the nearest capture at least 1 hour earlier, from up to 30 previous overlapping searches. Negative changes are count corrections; no growth rate is inferred. Refresh runs a new search and uses API quota.</p>
+      </section><p id="stats-note" class="helper"></p>
+    </div>
+    <footer><span>ViralNiche Radar</span><a href="/guide#channel-research">Research guide ↗</a></footer>
+  </main>
+</body>
+</html>

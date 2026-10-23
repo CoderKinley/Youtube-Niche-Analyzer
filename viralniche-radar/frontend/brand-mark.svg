@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <title>Niche discovery</title>
+  <rect x="1" y="1" width="38" height="38" rx="11" fill="#24151c" stroke="#61303b"/>
+  <path d="M9 16V11a2 2 0 0 1 2-2h5M24 31h5a2 2 0 0 0 2-2v-5" stroke="#f46b7e" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="14" cy="25" r="2" fill="#9a626e"/>
+  <circle cx="24" cy="27" r="1.5" fill="#9a626e"/>
+  <circle cx="25" cy="15" r="5" stroke="#f46b7e" stroke-width="1.7"/>
+  <circle cx="25" cy="15" r="2" fill="#f46b7e"/>
+</svg>
